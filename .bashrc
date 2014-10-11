@@ -84,23 +84,6 @@ xterm*|rxvt*)
     ;;
 esac
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    alias dir='dir --color=auto'
-    alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
-
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -117,80 +100,60 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
 
-
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
 
 #################### LIFEHACKER TERMINAL TWEAKS ############################
 
 #### Aliases
 
 alias inst='sudo apt-get install -y'
-
 alias remp='sudo apt-get purge'
-
 alias search='apt-cache search'
-
 alias ls='ls -al'
-
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
 alias c='clear'
-
 alias up='cd ..'
-
 alias home='cd ~'
-
 alias disk='cd /'
-
 alias trash='rm -fr ~/.Trash'
 
-
-
-
 #### Completion
-
 if [ -f /etc/bash_completion]; then
-
-. /etc/bash_completion
-
+	. /etc/bash_completion
 fi
 
 
 #### Encryption and Decryption
-
 encrypt ()
-
-{
-
-gpg -ac --no-options "$1"
-
+{gpg -ac --no-options "$1"
 }
 
-
-
 decrypt ()
-
-{
-
-gpg --no-options "$1"
-
+{gpg --no-options "$1"
 }
 
 
 
 #### Welcome message
 
-
 clear
-
 echo -e "Welcome back, Commander."
-
 echo -e ""
-
 echo -ne "Today is "; date
-
 echo -e ""; cal ;
-
 echo -ne "Uptime:"; uptime | awk /'up/
-
 {print $3,$4}'
 
 
