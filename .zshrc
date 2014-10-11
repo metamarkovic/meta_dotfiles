@@ -45,7 +45,7 @@ ZSH_THEME="bureau"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git,command-not-found,common-aliases,compleat,dirhistory,github,last-working-dir,python,rails,repo,ruby,sudo,web-search)
 
 source $ZSH/oh-my-zsh.sh
 
